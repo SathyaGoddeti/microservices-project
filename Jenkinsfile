@@ -8,7 +8,7 @@ pipeline {
                     dir('src') {
 
                      withDockerRegistry(credentialsId: 'docker-cred') {
-                      sh "docker build -t sathyagoddeti/sathyarepo:latest"
+                      sh "docker build -t sathyagoddeti/sathyarepo:latest ."
 
                     }
                         }
@@ -21,7 +21,7 @@ pipeline {
                 script {
                     
                 withDockerRegistry(credentialsId: 'docker-cred') {
-                 sh "docker push  sathyagoddeti/sathyarepo:latest"
+                 sh "docker push  sathyagoddeti/sathyarepo:latest ."
                     }
                 }
             }
