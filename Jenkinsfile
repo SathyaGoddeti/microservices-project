@@ -5,9 +5,9 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t sathyagoddeti/sathyarepo:latest ."
-                    }
+                   withDockerRegistry(credentialsId: 'docker-cred') {
+                       sh "docker build -t sathyagoddeti/sathyarepo:latest"
+                     }
                 }
             }
         }
@@ -15,8 +15,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push  sathyagoddeti/sathyarepo:latest "
+                     withDockerRegistry(credentialsId: 'docker-cred') {
+                       sh "docker push -t sathyagoddeti/sathyarepo:latest"
                     }
                 }
             }
